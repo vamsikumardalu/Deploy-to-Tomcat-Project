@@ -1,0 +1,21 @@
+launch another server for Tomcat----------1
+sudo -i
+apt update -y
+apt install default-jdk -y
+tomcat install (Go to google it)
+tar -xvzf apache-tomcat.10
+mv apache-tomcat.10 tomcat
+cd tomcat
+cd bin
+./startup.sh
+cd webapps
+cd host-manager
+cd META-INF
+vi context.xml(go and save changes)
+cd ../cd ..
+cd manager
+cd META-INF
+vi context.xml(go and save changes)
+cd conf
+vi tomcatcredentials.xml(go and save credentials)
+then to go tomcat app will give username and passwd will open app
