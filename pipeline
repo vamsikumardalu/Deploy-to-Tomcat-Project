@@ -1,0 +1,42 @@
+first launch instance------1
+sudo -i
+apt update -y
+apt install default-jdk -y
+apt install maven -y
+apt install jenkins -y(go to google and search jenkins download)
+login into jenkins Dashboard---create pipeline (Deploy to Tomcat)
+pipeline {
+    agent any
+    stages{
+        stage('clone'){
+            steps{
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/vamsikumardalu/train-ticket-reservation.git']])
+            }
+        }
+        stage('test'){
+            steps{
+                sh 'mvn test'
+            }
+        }
+        stage('compile'){
+            steps{
+                sh 'mvn compile'
+            }
+        }
+        stage('validate'){
+            steps{
+                sh 'mvn validate'
+            }
+        }
+        stage('package'){
+            steps{
+                sh 'mvn package'
+            }
+        }
+    }
+}
+apply and save
+Build now....
+
+
+
